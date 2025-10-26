@@ -4,17 +4,13 @@ CREATE DATABASE IF NOT EXISTS alx_book_store;
 -- Use the created database
 USE alx_book_store;
 
--- ========================
--- TABLE: Authors
--- ========================
+-- Table: Authors
 CREATE TABLE Authors (
     author_id INT AUTO_INCREMENT PRIMARY KEY,
     author_name VARCHAR(215) NOT NULL
 );
 
--- ========================
--- TABLE: Books
--- ========================
+-- Table: Books
 CREATE TABLE Books (
     book_id INT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(130) NOT NULL,
@@ -24,9 +20,7 @@ CREATE TABLE Books (
     FOREIGN KEY (author_id) REFERENCES Authors(author_id)
 );
 
--- ========================
--- TABLE: Customers
--- ========================
+-- Table: Customers
 CREATE TABLE Customers (
     customer_id INT AUTO_INCREMENT PRIMARY KEY,
     customer_name VARCHAR(215) NOT NULL,
@@ -34,9 +28,7 @@ CREATE TABLE Customers (
     address TEXT
 );
 
--- ========================
--- TABLE: Orders
--- ========================
+-- Table: Orders
 CREATE TABLE Orders (
     order_id INT AUTO_INCREMENT PRIMARY KEY,
     customer_id INT,
@@ -44,9 +36,7 @@ CREATE TABLE Orders (
     FOREIGN KEY (customer_id) REFERENCES Customers(customer_id)
 );
 
--- ========================
--- TABLE: Order_Details
--- ========================
+-- Table: Order_Details
 CREATE TABLE Order_Details (
     orderdetailid INT AUTO_INCREMENT PRIMARY KEY,
     order_id INT,
