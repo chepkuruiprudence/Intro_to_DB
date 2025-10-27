@@ -7,11 +7,10 @@ import mysql.connector
 from mysql.connector import Error
 
 try:
-    # Connect to MySQL server
     connection = mysql.connector.connect(
-        host='localhost',
-        user='root',
-        password='your_password'  # <-- Replace with your actual MySQL password
+        host="localhost",
+        user="root",
+        password="your_password"  # Replace with your MySQL password
     )
 
     if connection.is_connected():
@@ -23,7 +22,10 @@ except mysql.connector.Error as err:
     print(f"Error: {err}")
 
 finally:
-    # Close connection properly
-    if connection.is_connected():
-        cursor.close()
-        connection.close()
+    try:
+        if connection.is_connected():
+            cursor.close()
+            connection.close()
+            print("MySQL connection closed.")
+    except NameError:
+        pass
